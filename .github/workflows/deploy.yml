@@ -27,8 +27,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./distgit add .
-git commit -m "Build Astro directly with Node 22"
+          path: ./dist
 
   deploy:
     needs: build
@@ -40,4 +39,3 @@ git commit -m "Build Astro directly with Node 22"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        
