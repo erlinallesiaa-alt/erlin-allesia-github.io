@@ -20,8 +20,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Install, build, and upload your site
-        uses: withastro/action@v3
+      - name: Install dependencies
+        run: npm install
+      - name: Build Astro site
+        run: npm run build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./distgit add .
+git commit -m "Build Astro directly with Node 22"
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
